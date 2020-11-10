@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Scouting game {% if title %} {{ title }} {% endif %}</title>
+    <title>{% if game %} {{ game.name }} {% endif %}</title>
 {% endblock%}
 
 
 {% block body %}
-    <h1>Detail.html</h1>
+<div class="container-fluid">
+    <h1>{{ game.name }}</h1>
+</div>
 {% endblock %}
