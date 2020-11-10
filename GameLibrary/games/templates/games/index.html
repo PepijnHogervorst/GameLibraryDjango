@@ -6,8 +6,36 @@
 
 
 {% block body %}
-    {% if latest_games_list %}
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to the scouting game database!</h1>
+    </div>
 
+    {% if latest_games_list %}
+        <div class="container">
+            <h1 class="display-5">Recently added games</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Duration [min]</th>
+                        <th scope="col">Group size</th>
+                        <th scope="col">Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for game in latest_games_list %}
+                        <tr onclick="{% url 'detail' game.id%}">
+                            <td><a href="{% url 'detail' game.id %}">{{ game.name }}</a></td>
+                            <td>{{ game.duration_min }} - {{ game.duration_max }}</td>
+                            <td>{{ game.group_size_min }} - {{ game.group_size_max }}</td>
+                            <td>{{ game.pub_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% else %}
+        <H1>No games registered</H1>
     {% endif %}
 {% endblock %}
