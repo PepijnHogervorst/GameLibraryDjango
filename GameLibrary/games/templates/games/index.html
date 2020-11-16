@@ -7,12 +7,12 @@
 
 {% block body %}
     <div class="jumbotron">
-        <h1 class="display-3">Welcome to the scouting game database!</h1>
+        <h1 class="display-3">Welkom bij de scouting spellen database!</h1>
     </div>
 
     {% if latest_games_list %}
         <div class="container">
-            <h1 class="display-5">Recently added games</h1>
+            <h1 class="display-5">Recent toegevoegde spellen</h1>
 
             <table class="table">
                 <thead>
@@ -21,6 +21,7 @@
                         <th scope="col">Duration [min]</th>
                         <th scope="col">Group size</th>
                         <th scope="col">Created</th>
+                        <th scope="col">Author</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                             <td>{{ game.duration_min }} - {{ game.duration_max }}</td>
                             <td>{{ game.group_size_min }} - {{ game.group_size_max }}</td>
                             <td>{{ game.pub_date }}</td>
+                            <td>{{ game.author.username }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

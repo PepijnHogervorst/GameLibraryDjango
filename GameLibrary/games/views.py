@@ -6,6 +6,7 @@ from django.views import generic
 
 from .models import Game
 
+
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'games/index.html'

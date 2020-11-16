@@ -1,12 +1,36 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>{% if game %} {{ game.name }} {% endif %}</title>
+    {% if game %}
+        <title>Spel: {{ game.name }}</title>
+    {% else %}
+        <title>Onbekend spel</title>
+    {% endif %}
 {% endblock%}
 
 
 {% block body %}
-<div class="container-fluid">
+{% if game %}
+<div class="container">
     <h1>{{ game.name }}</h1>
+    <p>Laatst gewijzigd: {{ game.pub_date|date:'Y-m-d H:i' }}</p>
 </div>
+
+<div class="container">
+    <h2>Beschrijving</h2>
+    <p>{{ game.description }}</p>
+</div>
+
+<div class="container">
+    <h2>Benodigdheden</h2>
+    {% if game.materials %}
+<!--        {% for material in game.materials %}-->
+<!--        <li>{{ material.quantity|stringformat:"02d" }}: {{ material.name }}</li>-->
+<!--        {% endfor %}-->
+    {% else %}
+        <li>Geen materiaal nodig!</li>
+    {% endif %}
+</div>
+{% endif %}
+
 {% endblock %}
