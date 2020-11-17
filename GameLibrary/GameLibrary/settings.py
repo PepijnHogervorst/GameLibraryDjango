@@ -41,6 +41,10 @@ INSTALLED_APPS = [
 
     # User applications
     'games',
+    'users',
+
+    #Imported applications
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Set Crispy forms extention to bootstrap 4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Login redirect
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
